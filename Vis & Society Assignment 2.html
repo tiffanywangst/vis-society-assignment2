@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///Users/tiffanywangst/Desktop/Vis%20&%20Society%20Assignment%202.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Vis &amp; Society Assignment 2</title>
+	<link rel="stylesheet" href="./Vis &amp; Society Assignment 2_files/report.css">
+</head>
+
+<body class="vsc-initialized">
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Tiffany Wang</strong> — <em>twangst@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Exploring corporate owners and evictions</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>Do neighborhoods in Boston with higher rates of corporate ownership experience higher eviction rates?</li>
+				<li>How have corporate ownership rates and eviction rates changed over time across different neighborhoods in Boston?</li>
+				<li>Which demographic groups are most affected by evictions in neighborhoods with high corporate ownership in Boston?</li>
+				
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries &amp; Insights</h2>
+
+			<p>To begin, we examine the dataset to understand its structure, variables, and any potential data quality issues. There are three datasets in total. The first dataset contains corporate ownership rates and occupancy rates of different neighborhoods over time (from 2004 to 2024), which consists of four variables:</p><p>- Neighborhood (categorical): Represents different areas in Boston</p><p>- Year (integer): The year of observation.</p><p>- own_occ_rate (float): The rate of owner-occupied properties in each neighborhood, calculated as the proportion of 'OWN_OCC=Y' to the total of 'OWN_OCC=Y' and 'OWN_OCC=N' within each neighborhood</p><p>- corp_own_rate (float): The rate of corporate-owned properties in each neighborhood, calculated as the proportion of 'CORP_OWN=Y' to the total of 'CORP_OWN=Y' and 'CORP_OWN=N'</p><p>The second dataset, in addition to the first one, includes a number of attributes extracted from US Census data fields, such as age, ethnicity, social status, education status. This dataset also includes ownership data (corporate ownership and owner-occupancy rates), which enables us to analyze ownership trends and their correlation with eviction data. Finally, the third one provides geographic information about neighborhoods in Boston that we investigate. 
+There are no columns of missing values, so the data has good quality. Additionally, the aggregation from neighborhoods to census tracts has been verified. This ensures that the combined data accurately represents the targeted geographic units. The dataset also spans multiple years for each neighborhood, suggesting that it contains information of various years. Overall, the dataset is suitable for thorough analysis and visualizations.
+
+</p><p>We come to our first question: Do neighborhoods in Boston with higher rates of corporate ownership experience higher eviction rates? 
+</p><p>The New York Times article “In 83 Million Eviction Records, a Sweeping and Intimate New Look at Housing in America” suggests that corporate landlords are more likely to file for evictions compared to live-in landlords. Therefore, it is interesting to investigate the relationship between corporate ownership rates and eviction rates in different neighborhoods. This analysis question would explore whether the national trend mentioned in the article also applies to Boston.
+</p><p>The stacked plots of ownership occupancy rates and corporate ownership rates below show the distribution of data points across different neighborhoods in Boston. The x-axis represents the year and the y-axis indicates the rate in order to visually track how these ownership trends evolved over time across different neighborhoods in Boston. By displaying different neighborhoods as distinct lines, these graphs help to compare the dynamics of corporate ownership and owner occupancy in relation to each other from 2004 to 2024.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_1.png" alt="" width="800">
+				<figcaption>Stacked Area Plot of Owner-Occupancy Rate Over Time</figcaption>
+			</figure>
+
+			<figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_2.png" alt="" width="800">
+				<figcaption>Stacked Area Plot of Corporate Ownership Rate Over Time</figcaption>
+			</figure>
+
+			<p>We see that for all neighborhoods, the owner-occupancy rates slightly decrease over time, and the corporate ownership rate increases over time. These rates imply that properties are less likely to be owner-occupied and more likely to be occupied by corporate entities.
+
+</p><p>Perhaps the increase in corporate ownership could also correlate with rising housing costs, as corporations may be more inclined to maximize profits through higher rents. Given this context, it is interesting to explore whether these changes in ownership patterns are linked to increased eviction rates. If neighborhoods experience a rise in corporate ownership, does this trend lead to higher eviction rates? And what is the timing of changes in corporate ownership relative to eviction rate increase? Are there specific neighborhoods where these trends are most obvious, which could potentially provide deeper insights housing policy interventions.
+
+</p><p>To dive deeper into investigating the yearly housing trend (the second question we would like to explore), we combine owner occupancy rates and corporate ownership rates across various neighborhoods in Boston from 2004 to 2024 in one graph. By visualizing these changes over time in one graph, the goal is to identify any significant shifts in property ownership patterns. By observing noticeable increase or decrease in corporate ownership, this graph can help discover more about housing market dynamics.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_3.png" alt="" width="800">
+				<figcaption>Owner Occupancy and Corporate Ownership Rates (2004-2024) in Boston Neighborhoods</figcaption>
+			</figure>
+
+			<p>Overall, the solid lines generally show a more stable or slightly decreasing trend in owner occupancy rates over the years. The dashed lines show a noticeable increase, especially in the years after 2017, showing a rise in corporate ownership rates across most neighborhoods. We observe that Neighborhoods like West Roxbury, Roslindale, and Brighton consistently have higher owner occupancy rates above 0.5. These areas are likely more residential with less corporate investment. Some follow-up questions to explore might be: What happened in 2017 that caused this spike? Why was this change remarkable in corporate ownership rates, not the owner occupancy rates? What is the correlation between owner occupancy rates and corporate ownership rates? There is definitely a relationship, but further work needs to be done to uncover the detailed factors that affect these rates.
+
+</p><p>Finally, we move to the third question: which demographic groups are most affected by evictions in neighborhoods with high corporate ownership in Boston? What are some other factors that affect the eviction rates?
+
+</p><p>Overall, investigating temporal trends would provide insights into whether there is a relationship between increasing corporate ownership and eviction rates. This relationship may make a difference in the housing market dynamics. Additionally, historic data may also contribute to analyzing this correlation, especially with economic cycles and policy changes in the past that can lead to changing housing instability.
+
+</p><p>To explore potential patterns and associations, we dive deeper into other variables in the dataset to examine their relation with ownership rates. Some of the example variables are:
+
+</p><p>- tot_pop_18plus: Total population aged 18 years and over
+</p><p>- college: the number of individuals residing in college or university student housing
+</p><p>- black_all: total population identifying as Black or African American
+</p><p>- aapi_all: total population identifying as Asian American and Pacific Islander
+</p><p>- hisp_all: total population identifying as Hispanic or Latino
+</p><p>- white_all: total population identifying as White
+</p>
+
+			<p>First, we try with the correlation matrix for linear relationships between these demographic variables and ownership rates. The demographic variable in the correlation matrix below is “'tot_pop_18plus”, which is the population aged 18 years and over.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_4.png" alt="" width="800">
+				<figcaption>Correlation between Adult Population and Ownership Rates</figcaption>
+			</figure><p>There is a weak positive correlation (0.23) between tot_pop_18plus and own_occ_rate, suggesting that neighborhoods with a larger adult population might have slightly higher owner occupancy rates. There is a weak negative correlation (-0.15) between tot_pop_18plus and corp_own_rate, suggesting that neighborhoods with more adults tend to have slightly lower corporate ownership rates. There is also a slightly stronger negative correlation between own_occ_rate and corp_own_rate, suggesting that areas with high owner occupancy (-0.64) tend to have lower corporate ownership rates and vice versa. 
+
+</p><p>Therefore, the inverse relationship between owner occupancy rate and corporate ownership rate suggests that as corporate ownership rate increases, homeownership may become less accessible or desirable. The weak correlation with population size (tot_pop_18plus) implies that the number of adults in a neighborhood doesn't strongly influence housing ownership patterns. This indicates that other factors (such as income levels, demographic factors, housing prices, or neighborhood amenities) may be more significant contributors.
+
+</p><p>In addition to using the correlation matrix, we use a dot graph to see if there is a relation between the adult population size and these two rates.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_5.png" alt="" width="800">
+				<figcaption>Dot Plot between Adult Population and Ownership Rates</figcaption>
+			</figure><p>The graphs above show the relationship between the adult population (tot_pop_18plus) and two types of ownership rates across Boston neighborhoods: owner-occupancy rate (left) and corporate ownership rate (right). The scatter plot on the left shows that neighborhoods with smaller adult populations tend to have a wide range of owner-occupancy rates, spanning from about 0.2 to 0.7. As the adult population increases, the distribution of owner-occupancy rates narrows and generally decreases. This suggests that more densely populated neighborhoods may have lower rates of owner-occupancy. The plot on the right shows that corporate ownership rates are relatively dispersed across neighborhoods with smaller populations. However, for neighborhoods with larger adult populations, the corporate ownership rates seem to cluster between 0.10 and 0.30. This implies that in more densely populated neighborhoods, a significant portion of properties are likely owned by corporate entities, possibly indicating a stronger presence of rental properties or investment holdings.
+
+</p><p>We see that in both the correlation matrix and the two plots, the pattern between adult age population and owner occupancy rate and corporate ownership rate is not that noticeable. So there might be other socioeconomic factors that may have a greater impact on the owner occupancy rate and corporate ownership rate, and thus the eviction rate. Therefore, we repeat the same step on other demographic and socioeconomic factors below.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_6.png" alt="" width="800">
+				<figcaption>Correlation between College Population and Ownership Rates</figcaption>
+			</figure>
+
+			
+
+			
+
+			
+
+			
+
+			<figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_7.png" alt="" width="800">
+				<figcaption>Correlation between Black Population and Ownership Rates</figcaption>
+			</figure><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_8.png" alt="" width="800">
+				<figcaption>Correlation between Asian American and Pacific Islander Population and Ownership Rates</figcaption>
+			</figure><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_9.png" alt="" width="800">
+				<figcaption>Correlation between Hispanic and Latino Population and Ownership Rates</figcaption>
+			</figure><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_10.png" alt="" width="800">
+				<figcaption>Correlation between White Population and Ownership Rates</figcaption>
+			</figure><p>From the correlation matrices with other variables, from the variables that we explore, we see that college has the highest correlation between own_occ_rate (owner-occupancy rate) and corp_own_rate (corporate ownership rate). To look at this correlation from a different perspective, we also use a dot graph to see how the number of individuals attending colleges and the rates.
+
+</p><figure>
+				<img src="./Vis &amp; Society Assignment 2_files/image_11.png" alt="" width="800">
+				<figcaption>Dot Plot between College Population and Ownership Rates</figcaption>
+			</figure>
+		<p>We notice that the owner occupancy rate decreases as the number of individuals in college increases. At very high “college” levels, the owner occupancy rate is notably low (at 0.2 or less). The corporate ownership rate appears more scattered but generally increases as the number of students in college housing increases. These graphs offer better insights into the relationship between college levels and housing rate. It is possible that higher education levels might be linked to increased income and financial stability, enabling individuals to purchase homes (higher own_occ_rate). Educated individuals may also invest in real estate through corporate entities (e.g., LLCs), contributing to a higher corp_own_rate. 
+
+</p><p>Some follow-up questions that can be further explored are: In addition to these factors that we graphed, are there any other dominant factors that influence this trend? And how may we evaluate these factors? Can they be measured quantitatively? Furthermore, will breaking down owner occupancy rates by demographic factors (e.g., income levels, age groups, education levels) provide more insight? How do these ownership trends change over time? The graphs above have not taken different years into consideration.
+
+</p></section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>In conclusion, the dataset explores corporate ownership, owner occupancy, and eviction rates in Boston from 2004 to 2024, with a focus on understanding housing dynamics across different neighborhoods. Key findings indicate that owner-occupancy rates have declined over time while corporate ownership has increased, raising concerns about eviction trends. A particular focus was placed on demographic factors influencing these trends. The number of individuals residing in college or university housing showed a strong correlation with both owner-occupancy and corporate ownership rates. The analysis overall prompts further questions, such as:
+
+</p>
+		<p>- How do corporate-owned rates contribute to higher eviction rates? Do they have a direct relationship?
+</p><p>- How do trends in corporate ownership and eviction rates correlate over time?
+
+</p><p>- Which demographic groups are most vulnerable to eviction, and what socioeconomic factors contribute to this? Are there any more prominent socioeconomic factors that contribute to the change in owner-occupancy and corporate ownership rates?
+
+</p></section>
+	</main>
+
+
+</body></html>
